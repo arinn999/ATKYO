@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlatTulisKu - Toko & Jual Beli Alat Tulis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">✏️ AlatTulis<span>Ku</span></div>
+    <nav class="nav-actions">
+      <span id="userGreeting" class="user-greeting hidden"></span>
+      <button id="sellBtn" class="btn btn-warning">+ Jual Barang</button>
+      <button id="authBtn" class="btn btn-outline">Login</button>
+      <button id="cartBtn" class="btn btn-primary">
+        🛒 Keranjang (<span id="cartCount">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Jual & Beli Alat Tulis Terlengkap</h1>
+    <p>Temukan perlengkapan sekolah dari berbagai merk ternama, atau titip jual alat tulis barumu di sini!</p>
+  </section>
+
+  <!-- Filter & Katalog Produk -->
+  <main class="container">
+    <div class="catalog-header">
+      <h2 class="section-title">Katalog Alat Tulis</h2>
+      <div class="filter-box">
+        <label for="brandFilter">Filter Merk:</label>
+        <select id="brandFilter">
+          <option value="Semua">Semua Merk</option>
+          <option value="Joyko">Joyko</option>
+          <option value="Faber-Castell">Faber-Castell</option>
+          <option value="Kenko">Kenko</option>
+          <option value="Snowman">Snowman</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="productList" class="product-grid">
+      <!-- Produk akan dimuat otomatis oleh JavaScript -->
+    </div>
+  </main>
+
+  <!-- Modal Login -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeLogin">&times;</span>
+      <h2>Masuk ke Akun</h2>
+      <p class="modal-subtitle">Login diperlukan untuk membeli atau menjual barang.</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Nama Pengguna</label>
+          <input type="text" id="username" placeholder="Contoh: Rina" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Kata Sandi</label>
+          <input type="password" id="password" placeholder="Masukkan kata sandi" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Masuk Sekarang</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Jual Barang -->
+  <div id="sellModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeSell">&times;</span>
+      <h2>📦 Jual Alat Tulis</h2>
+      <p class="modal-subtitle">Tambahkan produk alat tulis Anda ke etalase toko.</p>
+      <form id="sellForm">
+        <div class="form-group">
+          <label for="sellName">Nama Produk</label>
+          <input type="text" id="sellName" placeholder="Contoh: Pensil 2B Set" required>
+        </div>
+        <div class="form-group">
+          <label for="sellBrand">Pilih Merk</label>
+          <select id="sellBrand" required>
+            <option value="Joyko">Joyko</option>
+            <option value="Faber-Castell">Faber-Castell</option>
+            <option value="Kenko">Kenko</option>
+            <option value="Snowman">Snowman</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sellPrice">Harga (Rp)</label>
+          <input type="number" id="sellPrice" placeholder="Contoh: 20000" min="500" required>
+        </div>
+        <div class="form-group">
+          <label for="sellImage">URL Gambar (Opsional)</label>
+          <input type="url" id="sellImage" placeholder="Kosongkan untuk gambar otomatis">
+        </div>
+        <div class="form-group">
+          <label for="sellDesc">Deskripsi Singkat</label>
+          <textarea id="sellDesc" rows="2" placeholder="Jelaskan kondisi atau detail produk..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-warning btn-block">Tayangkan Produk</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Keranjang Belanja -->
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-content cart-box">
+      <span class="close-btn" id="closeCart">&times;</span>
+      <h2>🛒 Keranjang Belanja</h2>
+      <div id="cartItems" class="cart-items">
+        <!-- Item keranjang akan muncul di sini -->
+      </div>
+      <div class="cart-footer">
+        <div class="total-row">
+          <span>Total Pembayaran:</span>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+        <button id="checkoutBtn" class="btn btn-success btn-block">Beli Sekarang (Checkout)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 AlatTulisKu. Dibuat dengan ❤️ menggunakan HTML, CSS, & JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
